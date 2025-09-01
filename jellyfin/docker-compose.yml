@@ -3,11 +3,22 @@ services:
     image: jellyfin/jellyfin:latest
     container_name: jellyfin
     user: 1000:1000
+    # network_mode: host
     ports:
       - "8096:8096"
     volumes:
       - /home/cjuneja/Developer/homelab/jellyfin/config:/config
       - /home/cjuneja/Developer/homelab/jellyfin/cache:/cache
-      - /home/cjuneja/media:/media
+      - /home/cjuneja/media/Movies:/media
+      - /home/cjuneja/media/Music:/music
     environment:
       - JELLYFIN_PublishedServerUrl=http://192.168.29.100
+      - PREFER_IPV4=true
+      - DOTNET_SYSTEM_NET_DISABLEIPV6=1
+    restart: unless-stopped
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=1
+      - net.ipv6.conf.default.disable_ipv6=1

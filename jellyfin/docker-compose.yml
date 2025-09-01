@@ -1,0 +1,13 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    user: 1000:1000
+    ports:
+      - "8096:8096"
+    volumes:
+      - /home/cjuneja/Developer/homelab/jellyfin/config:/config
+      - /home/cjuneja/Developer/homelab/jellyfin/cache:/cache
+      - /home/cjuneja/media:/media
+    environment:
+      - JELLYFIN_PublishedServerUrl=http://192.168.29.100

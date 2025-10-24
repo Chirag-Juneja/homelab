@@ -7,10 +7,11 @@ services:
     ports:
       - "8096:8096"
     volumes:
-      - /home/cjuneja/Developer/homelab/jellyfin/config:/config
-      - /home/cjuneja/Developer/homelab/jellyfin/cache:/cache
-      - /home/cjuneja/media/Movies:/media
-      - /home/cjuneja/media/Music:/music
+      - /mnt/Storage/media/config:/config
+      - /mnt/Storage/media/cache:/cache
+      - /mnt/Storage/media/Movies:/media
+      - /mnt/Storage/media/Music:/music
+      - /mnt/Storage/media/TV:/tv
     environment:
       - JELLYFIN_PublishedServerUrl=http://192.168.29.100
       - PREFER_IPV4=true

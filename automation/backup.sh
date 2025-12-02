@@ -3,7 +3,7 @@
 # Backup data from Storage disk to Backup disk
 
 SOURCE="/mnt/Storage/"
-DEST="/mnt/Backup/Backup/"
+DEST="/run/media/cjuneja/Expansion/Backup"
 
 if [ -n "$1" ]; then
     SOURCE="S1"
